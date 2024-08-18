@@ -1,0 +1,38 @@
+<section id="production" class="production">
+        <div class="row min-vh-100 align-items-center justify-content-center">
+            
+            <div class="col-6">
+                
+            <header>
+                <h1 class="fs-3 mb-3">Antrian barang</h1>
+            </header>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama Barang 1</th>
+                        <th scope="col">Nama Barang 2</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                  <% @productions.each_with_index do |production, index| %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= production.wo_list.nama_barang_1 %></td>
+                        <td><%= production.wo_list.nama_barang_2 %></td>
+                        <td>
+                        <%= link_to "Selesai", mark_complete_production_path(production), method: :patch, data: { 
+                            turbo_confirm: "Apakah barang sudah selesai diproduksi?" 
+                        }, class: "btn btn-primary btn-sm" %>
+
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            </dib>
+        </div>
+</section>

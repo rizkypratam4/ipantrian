@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status_production: false
+  tanggal_selesai: 2024-08-16 23:48:00
+  wo_list: one
+  reschedule: false
+  reschedule_date: 2024-08-16 23:48:00
+
+two:
+  status_production: false
+  tanggal_selesai: 2024-08-16 23:48:00
+  wo_list: two
+  reschedule: false
+  reschedule_date: 2024-08-16 23:48:00

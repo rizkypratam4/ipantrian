@@ -1,0 +1,45 @@
+<section id="woLists" class="wo-lists">
+        <div class="row min-vh-100 align-items-center justify-content-center">
+            <div class="col-6">
+            <header>
+                <h1 class="fs-3 mb-3">Jadwal Produksi</h1>
+                <div class="input-group w-50 mb-3">
+                    <%= form_with url: import_wo_lists_path, local: true, multipart: true do |form| %>
+                        <%= form.file_field :file, class: "form-control", id: "inputGroupFile04", aria: { desribedby: "inputGroupFileAddon04"},
+                          label: "Upload" %>
+                        <%= form.submit "Import", class: "btn btn-outline-primary mt-3", id: "inputGroupFileAddon04"%>
+                    <% end %>
+                    <%= link_to "Clear all", clear_all_wo_lists_path, method: :patch, data: { 
+                turbo_confirm: "Apakah anda yakin ingin menghapus semua jadwal?" 
+                }, class: "btn btn-danger mt-3" %>
+
+
+
+                </div>
+            </header>
+           <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Barang 1</th>
+                <th scope="col">Nama Barang 2</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @wolists.each_with_index do |wo_list, index| %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= wo_list.nama_barang_1 %></td>
+                    <td><%= wo_list.nama_barang_2 %></td>
+                    <td><%= wo_list.quantity %></td>
+                    <td><%= wo_list.priority %></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
+
+            </dib>
+        </div>
+</section>

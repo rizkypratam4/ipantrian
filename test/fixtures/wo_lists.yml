@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama_barang_1: MyString
+  nama_barang_2: MyString
+  quantity: 1
+  priority: 1
+
+two:
+  nama_barang_1: MyString
+  nama_barang_2: MyString
+  quantity: 1
+  priority: 1
