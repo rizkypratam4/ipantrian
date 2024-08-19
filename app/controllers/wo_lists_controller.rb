@@ -30,13 +30,13 @@ class WoListsController < ApplicationController
     redirect_to wo_lists_path, notice: "Data berhasil diimport"
   end
 
-    def show 
-      @wo_list = WoList.find(params[:id])
-    end
-
-    def clear_all
-      WoList.where(status: nil).update_all(status: true)
-      redirect_to wo_lists_path, notice: 'Semua jadwal telah diperbarui.'
+    
+    def clear_all 
+     @wo_list = WoList.where(status: nil).update_all(status: true)
+      respond_to do |format|
+        format.html { redirect_to wo_lists_path, notice: 'Semua status yang nil berhasil diperbarui menjadi true.' }
+        format.json { head :no_content }
+      end
     end
     
 end 

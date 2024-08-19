@@ -4,11 +4,6 @@ class ProductionsController < ApplicationController
     @productions = Production.where(status_production: nil).includes(:wo_list)
   end
 
-  def show
-    @production = Production.find(params[:id])
-  end
-
-
   def mark_complete
     @production = Production.find(params[:id])
     if @production.update(status_production: true)

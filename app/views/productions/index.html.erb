@@ -24,10 +24,10 @@
                         <td><%= production.wo_list.nama_barang_1 %></td>
                         <td><%= production.wo_list.nama_barang_2 %></td>
                         <td>
-                        <%= link_to "Selesai", mark_complete_production_path(production), method: :patch, data: { 
-                            turbo_confirm: "Apakah barang sudah selesai diproduksi?" 
-                        }, class: "btn btn-primary btn-sm" %>
-
+                            <%= button_to "Selesai", mark_complete_production_path(production), method: :patch, data: { 
+                                turbo_confirm: "Apakah barang sudah selesai diproduksi?" 
+                                }, class: "btn btn-primary btn-sm" 
+                            %>
                         </td>
                     </tr>
                     <% end %>

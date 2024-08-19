@@ -8,17 +8,19 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "wo_lists#index"
 
-  resources :wo_lists do
+  resources :wo_lists, except: :show do
     collection do
       post :import
       patch :clear_all
     end
   end
   
-  resources :productions do
+  
+  resources :productions, except: :show do
     member do
       patch :mark_complete
     end
   end
+  
    
 end
