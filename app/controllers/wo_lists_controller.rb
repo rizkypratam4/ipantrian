@@ -31,10 +31,16 @@ class WoListsController < ApplicationController
   end
 
     
-    def clear_all 
-     @wo_list = WoList.where(status: nil).update_all(status: true)
+    def clear_all
+      WoList.joins(:production)
+           .where(status: nil, productions: { status_production: nil })
+           .find_each do |wo_list|
+      wo_list.update(status: true)
+      wo_list.production.update(status_production: false)
+           end
+           
       respond_to do |format|
-        format.html { redirect_to wo_lists_path, notice: 'Semua status yang nil berhasil diperbarui menjadi true.' }
+        format.html { redirect_to wo_lists_path, notice: 'Data berhasil dihapus' }
         format.json { head :no_content }
       end
     end
